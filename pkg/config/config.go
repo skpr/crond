@@ -1,5 +1,7 @@
 package config
 
+const DefaultFilePath = "/etc/skpr/crond/tasks.yml"
+
 type Tasks map[string]Task
 
 type Task struct {

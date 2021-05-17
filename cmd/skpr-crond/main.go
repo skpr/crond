@@ -16,7 +16,7 @@ import (
 )
 
 var (
-	cliConfig = kingpin.Flag("config", "Path to the crond config file.").Short('c').Default("/etc/skpr/crond/tasks.yml").String()
+	cliConfig = kingpin.Flag("config", "Path to the crond config file.").Short('c').Default(config.DefaultFilePath).String()
 )
 
 func main() {
