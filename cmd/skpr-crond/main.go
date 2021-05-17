@@ -1,14 +1,16 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
+	"strings"
 	"time"
 
 	"github.com/go-co-op/gocron"
-	"github.com/skpr/crond/internal/config"
+	"github.com/skpr/crond/pkg/config"
 	"gopkg.in/alecthomas/kingpin.v2"
 	"gopkg.in/yaml.v2"
 )
@@ -20,6 +22,8 @@ var (
 func main() {
 	var tasks config.Tasks
 
+	fmt.Println("Loading configuration")
+
 	yamlFile, err := ioutil.ReadFile(*cliConfig)
 	if err != nil {
 		panic(err)
@@ -29,6 +33,12 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	for name, task := range tasks {
+		fmt.Printf("Found task: name='%s' schedule='%s' command='%s' args='%s'\n", name, task.Schedule, task.Command, strings.Join(task.Args, " "))
+	}
+
+	fmt.Println("Starting application")
 
 	if err := run(tasks); err != nil {
 		panic(err)
