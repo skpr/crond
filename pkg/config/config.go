@@ -1,6 +1,6 @@
 package config
 
-const DefaultFilePath = "/etc/skpr/crond/tasks.yml"
+const DefaultFilePath = "/etc/skpr/data/cron.yml"
 
 type Tasks map[string]Task
 
