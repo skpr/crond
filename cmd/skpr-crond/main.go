@@ -20,6 +20,8 @@ var (
 )
 
 func main() {
+	kingpin.Parse()
+
 	var tasks config.Tasks
 
 	fmt.Println("Loading configuration")
