@@ -1,0 +1,48 @@
+version: 2
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - lint
+      - test
+  release:
+    jobs:
+      - release:
+          context: org-global
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              # Only on tags formatted like v0.1.1
+              only: /^v\d+\.\d+\.\d+[0-9A-Za-z-]*$/
+
+jobs:
+  lint:
+    docker:
+      - image: golang:1.15
+    working_directory: /go/src/github.com/skpr/crond
+    steps:
+      - checkout
+      - run: |
+          go get golang.org/x/lint/golint
+          make lint
+
+  test:
+    docker:
+      - image: golang:1.15
+    working_directory: /go/src/github.com/skpr/crond
+    steps:
+      - checkout
+      - run: |
+          make test
+
+  release:
+    docker:
+      - image: docker.io/skpr/goreleaser:latest
+    working_directory: /go/src/github.com/skpr/crond
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
+      - run: goreleaser

@@ -7,6 +7,7 @@ require (
 	github.com/alecthomas/units v0.0.0-20210208195552-ff826a37aa15 // indirect
 	github.com/go-co-op/gocron v1.5.0
 	github.com/mitchellh/prefixedio v0.0.0-20190213213902-5733675afd51 // indirect
+	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616 // indirect
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	gopkg.in/yaml.v2 v2.4.0
 )
