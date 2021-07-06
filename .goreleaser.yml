@@ -1,0 +1,29 @@
+project_name: skpr-crond
+
+builds:
+  - id: skpr-crond
+    main: ./cmd/skpr-crond
+    binary: skpr-crond
+    ldflags:
+      - -extldflags '-static'
+    env:
+      - CGO_ENABLED=0
+    goos: [ linux ]
+    goarch: [ amd64 ]
+
+release:
+  prerelease: auto
+  name_template: "Skpr: Crond {{.Version}}"
+
+  github:
+    owner: skpr
+    name: crond
+
+nfpms:
+- maintainer: Nick Schuch <nick@previousnext.com.au>
+  description: Sample project.
+  homepage: https://github.com/skpr/crond
+  formats:
+  - deb
+  - rpm
+  - apk
