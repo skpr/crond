@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
@@ -26,7 +25,7 @@ func main() {
 
 	fmt.Println("Loading configuration")
 
-	yamlFile, err := ioutil.ReadFile(*cliConfig)
+	yamlFile, err := os.ReadFile(*cliConfig)
 	if err != nil {
 		panic(err)
 	}
