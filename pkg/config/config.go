@@ -1,3 +1,4 @@
+// Package config is used to configure the cron command.
 package config
 
 // DefaultFilePath loaded when the application starts.

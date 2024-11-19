@@ -1,3 +1,4 @@
+// Package main is the entrypoint for the skpr-crond command.
 package main
 
 import (
