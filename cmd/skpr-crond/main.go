@@ -1,3 +1,4 @@
+// Package main is the entrypoint for the skpr-crond command.
 package main
 
 import (
@@ -11,7 +12,7 @@ import (
 
 	"github.com/go-co-op/gocron"
 	"github.com/skpr/crond/pkg/config"
-	"gopkg.in/alecthomas/kingpin.v2"
+	"github.com/alecthomas/kingpin/v2"
 	"gopkg.in/yaml.v2"
 )
 
