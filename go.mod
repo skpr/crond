@@ -1,13 +1,17 @@
 module github.com/skpr/crond
 
-go 1.16
+go 1.23
 
 require (
-	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
-	github.com/alecthomas/units v0.0.0-20210208195552-ff826a37aa15 // indirect
-	github.com/go-co-op/gocron v1.5.0
-	github.com/mitchellh/prefixedio v0.0.0-20190213213902-5733675afd51 // indirect
-	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616 // indirect
-	gopkg.in/alecthomas/kingpin.v2 v2.2.6
+	github.com/alecthomas/kingpin/v2 v2.4.0
+	github.com/go-co-op/gocron v1.37.0
 	gopkg.in/yaml.v2 v2.4.0
+)
+
+require (
+	github.com/alecthomas/units v0.0.0-20211218093645-b94a6e3cc137 // indirect
+	github.com/google/uuid v1.4.0 // indirect
+	github.com/robfig/cron/v3 v3.0.1 // indirect
+	github.com/xhit/go-str2duration/v2 v2.1.0 // indirect
+	go.uber.org/atomic v1.9.0 // indirect
 )
