@@ -69,7 +69,7 @@ func newTask(command string, args ...string) func() {
 
 		err := cmd.Run()
 		if err != nil {
-			log.Fatal(err)
+			log.Println(err)
 		}
 	}
 }
