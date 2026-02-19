@@ -1,4 +1,4 @@
-FROM golang:1.24 AS builder
+FROM golang:1.26 AS builder
 COPY . /go/src/github.com/skpr/crond
 WORKDIR /go/src/github.com/skpr/crond
 RUN CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static"' -o skpr-crond github.com/skpr/crond/cmd/skpr-crond
